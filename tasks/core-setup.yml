@@ -19,7 +19,7 @@
 - name: Install System Packages 3 (the rest)
   become: true
   apt:
-    name: [ "nmon", "curl", "htop", "golang", "lsof", "i3", "ccache", "ninja-build", "python3-pip"]
+    name: [ "nmon", "curl", "htop", "golang", "lsof", "bat", "ccache", "ninja-build", "python3-pip"]
   tags:
     - install
     - core
