@@ -1,3 +1,6 @@
+### Add eza and dotfiles
+
+
 ### Vim plug is not installing in the correct location
 ??
 
@@ -22,6 +25,8 @@ swapped out / key for /? key.  This seems to be the correct move.
 ### Permissions with ssh
 I think its a user issue.  I think that if I redo it with --become-user theprimeagen it will work better.
 remove all become_user root
+
+
 
 ### Plug
 I manually installed it..
