@@ -1,4 +1,4 @@
-### Add eza and dotfiles
+### Add eza and dotfiles and install fzf from source
 
 
 ### Vim plug is not installing in the correct location
