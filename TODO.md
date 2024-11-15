@@ -1,6 +1,8 @@
 ### Add eza and dotfiles and install fzf from source
-
-
+- [x] fzf
+- [ ] dotfiles
+- [ ] eza
+- [ ] add tags under include statements to make tags actually work :)
 ### Vim plug is not installing in the correct location
 ??
 
