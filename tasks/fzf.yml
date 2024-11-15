@@ -1,0 +1,46 @@
+---
+# tasks file for host_packages
+- name: set vars
+  ansible.builtin.set_fact:
+    fzf_install_path: "/usr/local/fzf"
+    fzf_userlist: 
+      - andrea
+
+- name: 'check if fzf is installed'
+  stat: path={{ fzf_install_path }}
+  register: fzf_installed
+
+- name: 'fzf: clone fzf repo'
+  become: true
+  git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "{{ fzf_install_path }}"
+    remote: origin
+  when: not fzf_installed.stat.exists
+
+- name: 'fzf: install packages'
+  become: true
+  command: "{{ fzf_install_path }}/install --bin"
+  when: not fzf_installed.stat.exists
+
+- name: Determine existing users
+  getent:
+     database: passwd
+
+- name: 'fzf: config for users'
+  become: true
+  template:
+    dest: "~{{ item }}/.fzf.bash"
+    src: fzf.bash.j2
+    owner: "{{ item }}"
+    group: "{{ item }}"
+  with_items: "{{ fzf_userlist }}"
+  when: item in ansible_facts.getent_passwd
+
+- name: 'fzf: config for users'
+  blockinfile:
+    path: "~{{ item }}/.bashrc"
+    block: |
+      [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+  with_items: "{{ fzf_userlist }}"
+  when: item in ansible_facts.getent_passwd
