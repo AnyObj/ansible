@@ -24,6 +24,7 @@
     - include_tasks: tasks/nvim-setup.yml
 #    - include: tasks/debugger.yml
     - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/fzf.yml
     - include_tasks: tasks/productivity-tools.yml
     - include_tasks: tasks/lsp.yml
 
