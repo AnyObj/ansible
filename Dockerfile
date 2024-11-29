@@ -20,6 +20,6 @@ USER andrea
 WORKDIR /home/andrea
 
 FROM prime
-COPY . .
+# COPY . .
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
 

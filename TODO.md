@@ -1,6 +1,7 @@
 ### Add eza and dotfiles and install fzf from source
 - [x] fzf
 - [ ] dotfiles
+- [x] Split zsh yaml so that zsh is intalled first then stow then antidote see .dotfiles scripts for more info (thanks for the challenge Prime :@)
 - [ ] eza
 - [ ] add tags under include statements to make tags actually work :)
 ### Vim plug is not installing in the correct location

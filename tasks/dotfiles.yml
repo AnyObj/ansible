@@ -17,9 +17,9 @@
     - install
     - dotfiles
     - stow
-#- name: Stow dotfiles
-#  shell: cd $HOME/.dotfiles && ./ubuntu
-#  tags:
-#    - install
-#    - dotfiles
-#    - stow
+- name: Stow dotfiles
+  shell: cd $HOME/.dotfiles && ./ubuntu
+  tags:
+    - install
+    - dotfiles
+    - stow
