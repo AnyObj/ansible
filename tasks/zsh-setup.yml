@@ -19,3 +19,35 @@
   tags:
     - alacritty
 
+- name: Install eza [1/4] - Install gpg (Debian/Ubuntu)
+  become: yes
+#  when: ansible_distribution_file_variety == "Debian"
+  package:
+    name: gpg
+    state: present
+- name: Install eza [2/4] - Create keyrings folder (Debian/Ubuntu)
+  become: yes
+#  when: ansible_distribution_file_variety == "Debian"
+  file:
+    path: /etc/apt/keyrings/
+    state: directory
+- name: Install eza [3/4] - Add GPG key (Debian/Ubuntu)
+  become: yes
+#  when: ansible_distribution_file_variety == "Debian"
+  apt_key:
+    url: https://raw.githubusercontent.com/eza-community/eza/main/deb.asc
+    keyring: /etc/apt/keyrings/gierens.gpg
+    state: present
+- name: Install eza [4/4] - Add eza repo (Debian/Ubuntu)
+  become: yes
+#  when: ansible_distribution_file_variety == "Debian"
+  apt_repository:
+    repo: deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main
+    state: present
+- name: Install eza
+  when: ansible_distribution != "MacOSX"
+  become: yes
+  package:
+    name: eza
+    state: present
+    update_cache: yes
