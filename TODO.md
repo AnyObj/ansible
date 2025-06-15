@@ -7,6 +7,9 @@
 - [ ] add tags under include statements to make tags actually work :)
 ### Vim plug is not installing in the correct location
 ??
+### Switch repo from https to ssh to push
+git remote set-url origin "$(git remote get-url origin | sed -E 's#https://github.com/(.*)#git@github.com:\1#')"
+
 
 ## Ohmyzsh
 * doesn't work because of the user.
