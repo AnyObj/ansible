@@ -3,6 +3,7 @@
 - [x] dotfiles
 - [x] Split zsh yaml so that zsh is intalled first then stow then antidote see .dotfiles scripts for more info (thanks for the challenge Prime :@)
 - [x] eza
+- [ ] add kitty, tmux conf, mise install and idk?
 - [ ] add tags under include statements to make tags actually work :)
 ### Vim plug is not installing in the correct location
 ??
